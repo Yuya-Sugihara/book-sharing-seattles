@@ -1,0 +1,23 @@
+Heroku 操作説明書(CLI)
+
+アプリケーションを開く
+コマンド: heroku open
+(アプリケーションが起動していない状態でアプリケーションを開くと、
+code=H14,Status=503 でクラッシュする。)
+
+アプリケーションを起動する
+コマンド: heroku ps:scale web=1
+
+アプリケーションを終了する
+コマンド: heroku ps:scale web=0
+
+アプリケーションをリスタート
+コマンド: heroku restart
+
+ログを表示する
+コマンド: heroku logs
+
+変更箇所のプッシュ
+コマンド: git push origin master
+
+ 
