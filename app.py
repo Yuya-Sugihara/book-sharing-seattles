@@ -6,26 +6,26 @@ import sys
 import os
 import python_script.test.sugihara.flask_test as test_sugihara
 
-#Flask‚Ì‰Šú‰»
-#template‚ğ’Tõ‚·‚éƒ‹[ƒgƒtƒHƒ‹ƒ_[‚Í html/templates
+#Flaskã®åˆæœŸåŒ–
+#templateã‚’æ¢ç´¢ã™ã‚‹ãƒ«ãƒ¼ãƒˆãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã¯ html/templates
 app = Flask(__name__,template_folder='html/templates')
 
 #-------------------------------------------------
-#ƒ‹[ƒeƒBƒ“ƒOˆ—
+#ãƒ«ãƒ¼ãƒ†ã‚£ãƒ³ã‚°å‡¦ç†
 
-#   book-sharing-seattles/‚ªƒŠƒNƒGƒXƒg‚³‚ê‚½‚É•Ô‚³‚ê‚é
+#   book-sharing-seattles/ãŒãƒªã‚¯ã‚¨ã‚¹ãƒˆã•ã‚ŒãŸæ™‚ã«è¿”ã•ã‚Œã‚‹
 @app.route('/')
 def hello():
     return "Hello, Heroku"
 
-#   book-sharing-seattles/test_sugihara/‚ªƒŠƒNƒGƒXƒg‚³‚ê‚½‚É•Ô‚³‚ê‚é
+#   book-sharing-seattles/test_sugihara/ãŒãƒªã‚¯ã‚¨ã‚¹ãƒˆã•ã‚ŒãŸæ™‚ã«è¿”ã•ã‚Œã‚‹
 @app.route('/test_sugihara')
 def execute_test_sugihara():
     return test_sugihara.execute()
 
 
 #-------------------------------------------------
-#  ƒGƒ“ƒgƒŠƒ|ƒCƒ“ƒg
+#  ã‚¨ãƒ³ãƒˆãƒªãƒã‚¤ãƒ³ãƒˆ
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
     #app.run(host="0.0.0.0", port=port)
