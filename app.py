@@ -2,26 +2,26 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask
+import sys
 import os
+import python_script.test.sugihara.flask_test as test_sugihara
 
-import Test.Sugihara.FlaskTest as TestSugihara
+#Flaskの初期化
+#templateを探索するルートフォルダーは html/templates
+app = Flask(__name__,template_folder='html/templates')
 
 #-------------------------------------------------
-app = Flask(__name__)
+#ルーティング処理
 
-
-#-------------------------------------------------
-#ディレクトリ定義
-
-#  book-sharing-seattles/がリクエストされた時に返される
-@app.route("/")
+#   book-sharing-seattles/がリクエストされた時に返される
+@app.route('/')
 def hello():
     return "Hello, Heroku"
 
-#   book-sharing-seattles/TestSugihara/がリクエストされた時に返される
-@app.route("/TestSugihara")
-def executeTestSugihara():
-    return TestSugihara.execute()
+#   book-sharing-seattles/test_sugihara/がリクエストされた時に返される
+@app.route('/test_sugihara')
+def execute_test_sugihara():
+    return test_sugihara.execute()
 
 
 #-------------------------------------------------
